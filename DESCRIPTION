@@ -1,0 +1,17 @@
+Package: shRek
+Title: A Shrek inspired package with colors and quotes
+Version: 0.99
+Authors@R: 
+    person("Lucie", "Gaspard-Boulinc", "lulu.gaspard@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"),
+    person("Romain", "Cometx", "romaincometix@gmail.com", role = c("aut", "cre"))
+Description:The shRek package is inspired by Shrek Universe and provide color palette and quotes for figures and codes. 
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    ggforce,
+    ggplot2
