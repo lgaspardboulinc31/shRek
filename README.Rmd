@@ -13,10 +13,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("images/shRek_prez/Slide1.jpeg", dpi = 96)
-```
-
 
 
 # shRek
@@ -29,12 +25,16 @@ shRek is a R package inspired from the movie franchise Shrek and adapated from W
 
 ## Installation
 
-You can install the development version of shRek from [GitHub](https://github.com/) with:
+<img align="left" src="images/shRek_prez/Slide1.png" width=200>
+You can install the development version of shRek from [GitHub](https://github.com/) with: 
+
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("lgaspardboulinc31/shRek")
 ```
+
+
 
 ## How to use
 
@@ -86,14 +86,13 @@ show_my_swamp(shrek_color)
 In this section, we show diverse way to use the color palette to plot with your data.
 
 #### Iris dataset example
-```{r Iris, fig.height=3, fig.width=5}
+```{r Iris}
 # Pick colors
 shrek_pal = burp("Shrek",pal_class="Hero",n=3)
 
 #Do Plot
 ggplot(iris, aes(y=Sepal.Length, x=Species, fill=Species)) + geom_boxplot() +
   scale_fill_manual(values=shrek_pal)
-
 ```
 
 #### Diamonds dataset example

@@ -1,8 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="images/shRek_prez/Slide1.jpeg" width="100%" />
-
 # shRek
 
 <!-- badges: start -->
@@ -17,7 +15,8 @@ your code!
 
 ## Installation
 
-You can install the development version of shRek from
+<img align="left" src="images/shRek_prez/Slide1.png" width=200> You can
+install the development version of shRek from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -130,7 +129,7 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
     geom_density(adjust=1.5, alpha=0.7)  + scale_fill_manual(values=pal)
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 #### WorldPhones example
 
@@ -154,7 +153,7 @@ head(WorldPhones.m)
 ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + scale_color_manual(values=dragon)
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
 #### Example with Titanic data
 
@@ -168,4 +167,4 @@ ggplot(data=as.data.frame(Titanic), aes(x=Age, y=Freq, fill=Class)) + geom_bar(s
   labs(title="Survival of Titanic passengers according to sex and class")
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
