@@ -1,12 +1,21 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="images/shRek_prez/Slide1.jpeg" width="100%" />
+
 # shRek
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of shRek is to …
+shRek is a R package inspired from the movie franchise Shrek and
+adapated from William Steig picture book. No matter if you are an ugly
+ogre that does not want to get out of your swamp, a funny donkey or a
+Villain that has no courage to go save the princess, you are welcome to
+use this package to embellish your plots or input some random quotes in
+your code!
+
+## The available color palettes
 
 ## Installation
 
@@ -21,6 +30,64 @@ devtools::install_github("lgaspardboulinc31/shRek")
 ## How to use
 
 This is a basic example which shows you how to solve a common problem:
+
+``` r
+# Retrieve the available palettes
+hero_palettes
+#> $Shrek
+#> [1] "#B0C400" "#D5DE2E" "#795A2D" "#523213" "#C3BC95" "#D3CCA5"
+#> 
+#> $Fiona
+#> [1] "#DEC33E" "#C0B037" "#A25E2E" "#5A5832" "#53432A" "#40473C"
+#> 
+#> $Puss_in_Boots
+#> [1] "#F0B56E" "#F4983F" "#B58421" "#6E342C" "#624835" "#90837A"
+#> 
+#> $Dragon
+#> [1] "#809737" "#CE603D" "#C25866" "#953644" "#A3534D" "#A80216"
+#> 
+#> $Gingy
+#> [1] "#CD524F" "#C5812A" "#BCA7A0" "#6F748C" "#864590"
+#> 
+#> $Pinocchio
+#> [1] "#E7B621" "#730000" "#007DAD" "#DCBB82" "#746225"
+```
+
+<img src="images/shRek_prez/Slide3.jpeg" width="100%" />
+
+``` r
+villain_palettes
+#> $Fairy_Godmother
+#> [1] "#617F95" "#4E6C7F" "#A4AEBE" "#B1C9E0" "#E6CFDE" "#D69D9E"
+#> 
+#> $Charming
+#> [1] "#EEECD8" "#C49F3C" "#3698B7" "#596979" "#032A5C" "#0E1319"
+#> 
+#> $Lord_Farquaad
+#> [1] "#FFB841" "#D8332F" "#B50128" "#A69D7B" "#0F5381" "#050917"
+#> 
+#> $Rumpelstiltskin
+#> [1] "#C8562A" "#5E7E72" "#946D58" "#EAA13D" "#594B3A" "#AE6441"
+```
+
+<img src="images/shRek_prez/Slide2.jpeg" width="100%" />
+
+``` r
+place_palettes
+#> $Duloc
+#> [1] "#72767D" "#D2D0BD" "#AEB5C3" "#737F9D" "#262C44" "#181B17"
+#> 
+#> $Far_Far_Away
+#> [1] "#929BD4" "#F2C27F" "#CE9671" "#893F31" "#AC9E54" "#373F0D"
+#> 
+#> $Dragon_Keep
+#> [1] "#E31A2D" "#C20F33" "#813666" "#584B96" "#542F4D" "#2C304A"
+#> 
+#> $Swamp
+#> [1] "#B27D4B" "#9A872C" "#465013" "#2F3A13" "#605324" "#222612"
+```
+
+<img src="images/shRek_prez/Slide4.jpeg" width="100%" />
 
 ``` r
 # burp allows to extract color palette from the ones available
@@ -58,7 +125,7 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
     geom_density(adjust=1.5, alpha=0.7)  + scale_fill_manual(values=pal)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
 ``` r
 # Let pick Dragon_Keep palette
@@ -80,4 +147,4 @@ head(WorldPhones.m)
 ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + scale_color_manual(values=dragon)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />

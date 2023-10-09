@@ -13,12 +13,22 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r echo=FALSE}
+knitr::include_graphics("images/shRek_prez/Slide1.jpeg", dpi = 96)
+```
+
+
+
 # shRek
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of shRek is to ...
+shRek is a R package inspired from the movie franchise Shrek and adapated from William Steig picture book. No matter if you are an ugly ogre that does not want to get out of your swamp, a funny donkey or a Villain that has no courage to go save the princess, you are welcome to use this package to embellish your plots or input some random quotes in your code! 
+
+## The available color palettes
+
+
 
 ## Installation
 
@@ -37,6 +47,31 @@ This is a basic example which shows you how to solve a common problem:
 library(shRek)
 library(ggplot2)
 ```
+
+```{r}
+# Retrieve the available palettes
+hero_palettes
+```
+```{r echo=FALSE}
+knitr::include_graphics("images/shRek_prez/Slide3.jpeg", dpi = 96)
+```
+
+
+```{r}
+villain_palettes
+```
+```{r echo=FALSE}
+knitr::include_graphics("images/shRek_prez/Slide2.jpeg", dpi = 96)
+```
+
+
+```{r}
+place_palettes
+```
+```{r echo=FALSE}
+knitr::include_graphics("images/shRek_prez/Slide4.jpeg", dpi = 96)
+```
+
 
 ```{r Pick a color palette}
 # burp allows to extract color palette from the ones available
