@@ -26,9 +26,6 @@ knitr::include_graphics("images/shRek_prez/Slide1.jpeg", dpi = 96)
 
 shRek is a R package inspired from the movie franchise Shrek and adapated from William Steig picture book. No matter if you are an ugly ogre that does not want to get out of your swamp, a funny donkey or a Villain that has no courage to go save the princess, you are welcome to use this package to embellish your plots or input some random quotes in your code! 
 
-## The available color palettes
-
-
 
 ## Installation
 
@@ -41,19 +38,21 @@ devtools::install_github("lgaspardboulinc31/shRek")
 
 ## How to use
 
-This is a basic example which shows you how to solve a common problem:
+This is an introduction to shRek, the available color palette and how to use them.
 
 ```{r example, echo=FALSE}
 library(shRek)
 library(ggplot2)
 ```
 
+### The available color palettes
+
 ```{r}
 # Retrieve the available palettes
 hero_palettes
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("images/shRek_prez/Slide3.jpeg", dpi = 96)
+knitr::include_graphics("images/shRek_prez/Slide3.jpeg", dpi = 100)
 ```
 
 
@@ -73,6 +72,7 @@ knitr::include_graphics("images/shRek_prez/Slide4.jpeg", dpi = 96)
 ```
 
 
+### Classic example
 ```{r Pick a color palette}
 # burp allows to extract color palette from the ones available
 shrek_color <- burp("Shrek", pal_class="Hero", n=6)
@@ -81,12 +81,12 @@ shrek_color <- burp("Shrek", pal_class="Hero", n=6)
 show_my_swamp(shrek_color)
 ```
 
-## Example with plot
+### Example with plot
 
 In this section, we show diverse way to use the color palette to plot with your data.
 
-### Some classical example
-```{r Iris}
+#### Iris dataset example
+```{r Iris, fig.height=3, fig.width=5}
 # Pick colors
 shrek_pal = burp("Shrek",pal_class="Hero",n=3)
 
@@ -95,6 +95,8 @@ ggplot(iris, aes(y=Sepal.Length, x=Species, fill=Species)) + geom_boxplot() +
   scale_fill_manual(values=shrek_pal)
 
 ```
+
+#### Diamonds dataset example
 ```{r}
 # Pick Fairy Godmother palette
 pal= burp("Fairy_Godmother","Villain",n=5)
@@ -103,6 +105,7 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
     geom_density(adjust=1.5, alpha=0.7)  + scale_fill_manual(values=pal)
 ```
 
+#### WorldPhones example
 ```{r}
 # Let pick Dragon_Keep palette
 dragon <- c(burp("Dragon_Keep", pal_class = "Place", n=6),burp("Dragon", pal_class = "Hero", n=1))
@@ -116,6 +119,17 @@ head(WorldPhones.m)
 ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + scale_color_manual(values=dragon)
 ```
 
+#### Example with Titanic data
+
+```{r}
+# Pick color
+pal <-burp("Rumpelstiltskin",pal_class="Villain",n=4)
+
+#Check survival
+ggplot(data=as.data.frame(Titanic), aes(x=Age, y=Freq, fill=Class)) + geom_bar(stat="identity") + facet_wrap(~Survived+Sex)+
+  scale_fill_manual(values=pal)+
+  labs(title="Survival of Titanic passengers according to sex and class")
+```
 
 
 

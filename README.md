@@ -15,8 +15,6 @@ Villain that has no courage to go save the princess, you are welcome to
 use this package to embellish your plots or input some random quotes in
 your code!
 
-## The available color palettes
-
 ## Installation
 
 You can install the development version of shRek from
@@ -29,7 +27,10 @@ devtools::install_github("lgaspardboulinc31/shRek")
 
 ## How to use
 
-This is a basic example which shows you how to solve a common problem:
+This is an introduction to shRek, the available color palette and how to
+use them.
+
+### The available color palettes
 
 ``` r
 # Retrieve the available palettes
@@ -89,6 +90,8 @@ place_palettes
 
 <img src="images/shRek_prez/Slide4.jpeg" width="100%" />
 
+### Classic example
+
 ``` r
 # burp allows to extract color palette from the ones available
 shrek_color <- burp("Shrek", pal_class="Hero", n=6)
@@ -99,12 +102,12 @@ show_my_swamp(shrek_color)
 
 <img src="man/figures/README-Pick a color palette-1.png" width="100%" />
 
-## Example with plot
+### Example with plot
 
 In this section, we show diverse way to use the color palette to plot
 with your data.
 
-### Some classical example
+#### Iris dataset example
 
 ``` r
 # Pick colors
@@ -117,6 +120,8 @@ ggplot(iris, aes(y=Sepal.Length, x=Species, fill=Species)) + geom_boxplot() +
 
 <img src="man/figures/README-Iris-1.png" width="100%" />
 
+#### Diamonds dataset example
+
 ``` r
 # Pick Fairy Godmother palette
 pal= burp("Fairy_Godmother","Villain",n=5)
@@ -126,6 +131,8 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+
+#### WorldPhones example
 
 ``` r
 # Let pick Dragon_Keep palette
@@ -148,3 +155,17 @@ ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + sc
 ```
 
 <img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+
+#### Example with Titanic data
+
+``` r
+# Pick color
+pal <-burp("Rumpelstiltskin",pal_class="Villain",n=4)
+
+#Check survival
+ggplot(data=as.data.frame(Titanic), aes(x=Age, y=Freq, fill=Class)) + geom_bar(stat="identity") + facet_wrap(~Survived+Sex)+
+  scale_fill_manual(values=pal)+
+  labs(title="Survival of Titanic passengers according to sex and class")
+```
+
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
