@@ -51,16 +51,17 @@ library(ggplot2)
 # Retrieve the available palettes
 hero_palettes
 ```
-```{r echo=FALSE}
-knitr::include_graphics("images/shRek_prez/Slide3.jpeg", dpi = 100)
+```{r}
+knitr::include_graphics("./images/all_colors_hero.pdf")
 ```
+
 
 
 ```{r}
 villain_palettes
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("images/shRek_prez/Slide2.jpeg", dpi = 96)
+knitr::include_graphics("images/all_colors_villain.pdf")
 ```
 
 
@@ -68,8 +69,9 @@ knitr::include_graphics("images/shRek_prez/Slide2.jpeg", dpi = 96)
 place_palettes
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("images/shRek_prez/Slide4.jpeg", dpi = 96)
+knitr::include_graphics("images/all_colors_places.pdf")
 ```
+![Image Title]("images/all_colors_places.pdf"){width=65%}
 
 
 ### Classic example

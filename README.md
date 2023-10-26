@@ -53,7 +53,11 @@ hero_palettes
 #> [1] "#E7B621" "#730000" "#007DAD" "#DCBB82" "#746225"
 ```
 
-<img src="images/shRek_prez/Slide3.jpeg" width="100%" />
+``` r
+knitr::include_graphics("./images/all_colors_hero.pdf")
+```
+
+<embed src="./images/all_colors_hero.pdf" width="100%" type="application/pdf" />
 
 ``` r
 villain_palettes
@@ -70,7 +74,7 @@ villain_palettes
 #> [1] "#C8562A" "#5E7E72" "#946D58" "#EAA13D" "#594B3A" "#AE6441"
 ```
 
-<img src="images/shRek_prez/Slide2.jpeg" width="100%" />
+<embed src="images/all_colors_villain.pdf" width="100%" type="application/pdf" />
 
 ``` r
 place_palettes
@@ -87,7 +91,13 @@ place_palettes
 #> [1] "#B27D4B" "#9A872C" "#465013" "#2F3A13" "#605324" "#222612"
 ```
 
-<img src="images/shRek_prez/Slide4.jpeg" width="100%" />
+<embed src="images/all_colors_places.pdf" width="100%" type="application/pdf" />
+
+<figure>
+<img src="%22images/all_colors_places.pdf%22" style="width:65.0%"
+alt="Image Title" />
+<figcaption aria-hidden="true">Image Title</figcaption>
+</figure>
 
 ### Classic example
 
