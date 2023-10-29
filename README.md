@@ -54,10 +54,10 @@ hero_palettes
 ```
 
 ``` r
-knitr::include_graphics("./images/all_colors_hero.pdf")
+knitr::include_graphics("./images/all_colors_hero.png")
 ```
 
-<embed src="./images/all_colors_hero.pdf" width="100%" type="application/pdf" />
+<img src="./images/all_colors_hero.png" width="100%" />
 
 ``` r
 villain_palettes
@@ -74,7 +74,7 @@ villain_palettes
 #> [1] "#C8562A" "#5E7E72" "#946D58" "#EAA13D" "#594B3A" "#AE6441"
 ```
 
-<embed src="images/all_colors_villain.pdf" width="100%" type="application/pdf" />
+<img src="images/all_colors_villain.png" width="100%" />
 
 ``` r
 place_palettes
@@ -91,13 +91,7 @@ place_palettes
 #> [1] "#B27D4B" "#9A872C" "#465013" "#2F3A13" "#605324" "#222612"
 ```
 
-<embed src="images/all_colors_places.pdf" width="100%" type="application/pdf" />
-
-<figure>
-<img src="%22images/all_colors_places.pdf%22" style="width:65.0%"
-alt="Image Title" />
-<figcaption aria-hidden="true">Image Title</figcaption>
-</figure>
+<img src="images/all_colors_places.png" width="100%" />
 
 ### Classic example
 
@@ -144,23 +138,38 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
 #### WorldPhones example
 
 ``` r
-# Let pick Dragon_Keep palette
-dragon <- c(burp("Dragon_Keep", pal_class = "Place", n=6),burp("Dragon", pal_class = "Hero", n=1))
-#show_my_swamp(dragon)
+library(ggalluvial)
+# Use dataset of Refugee
+data(Refugees, package = "alluvial")
+country_regions <- c(
+  Afghanistan = "Middle East",
+  Burundi = "Central Africa",
+  `Congo DRC` = "Central Africa",
+  Iraq = "Middle East",
+  Myanmar = "Southeast Asia",
+  Palestine = "Middle East",
+  Somalia = "Horn of Africa",
+  Sudan = "Central Africa",
+  Syria = "Middle East",
+  Vietnam = "Southeast Asia"
+)
+Refugees$region <- country_regions[Refugees$country]
 
-library(reshape2)
-WorldPhones.m = melt(WorldPhones)
-colnames(WorldPhones.m) = c("Year", "Continent", "Phones")
-head(WorldPhones.m)
-#>   Year Continent Phones
-#> 1 1951    N.Amer  45939
-#> 2 1956    N.Amer  60423
-#> 3 1957    N.Amer  64721
-#> 4 1958    N.Amer  68484
-#> 5 1959    N.Amer  71799
-#> 6 1960    N.Amer  76036
-# Make plot
-ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + scale_color_manual(values=dragon)
+## Pick color scale in palette
+places_pal <- c(burp("Dragon_Keep", pal_class = "Places", n=5),
+                burp("Swamp", pal_class = "Places", n=5))
+
+ggplot(data = Refugees,
+       aes(x = year, y = refugees, alluvium = country)) +
+  geom_alluvium(aes(fill = country, colour = country),
+                alpha = .75, decreasing = FALSE) +
+  scale_x_continuous(breaks = seq(2003, 2013, 2)) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = -30, hjust = 0)) +
+  scale_fill_manual(values=places_pal) +
+  scale_color_manual(values=places_pal) +
+  facet_wrap(~ region, scales = "fixed") +
+  ggtitle("refugee volume by country and region of origin")
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />

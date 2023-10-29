@@ -52,7 +52,7 @@ library(ggplot2)
 hero_palettes
 ```
 ```{r}
-knitr::include_graphics("./images/all_colors_hero.pdf")
+knitr::include_graphics("./images/all_colors_hero.png")
 ```
 
 
@@ -61,7 +61,7 @@ knitr::include_graphics("./images/all_colors_hero.pdf")
 villain_palettes
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("images/all_colors_villain.pdf")
+knitr::include_graphics("images/all_colors_villain.png")
 ```
 
 
@@ -69,9 +69,9 @@ knitr::include_graphics("images/all_colors_villain.pdf")
 place_palettes
 ```
 ```{r echo=FALSE}
-knitr::include_graphics("images/all_colors_places.pdf")
+knitr::include_graphics("images/all_colors_places.png")
 ```
-![Image Title]("images/all_colors_places.pdf"){width=65%}
+
 
 
 ### Classic example
@@ -108,16 +108,38 @@ ggplot(data=diamonds, aes(x=price, group=cut, fill=cut)) +
 
 #### WorldPhones example
 ```{r}
-# Let pick Dragon_Keep palette
-dragon <- c(burp("Dragon_Keep", pal_class = "Place", n=6),burp("Dragon", pal_class = "Hero", n=1))
-#show_my_swamp(dragon)
+library(ggalluvial)
+# Use dataset of Refugee
+data(Refugees, package = "alluvial")
+country_regions <- c(
+  Afghanistan = "Middle East",
+  Burundi = "Central Africa",
+  `Congo DRC` = "Central Africa",
+  Iraq = "Middle East",
+  Myanmar = "Southeast Asia",
+  Palestine = "Middle East",
+  Somalia = "Horn of Africa",
+  Sudan = "Central Africa",
+  Syria = "Middle East",
+  Vietnam = "Southeast Asia"
+)
+Refugees$region <- country_regions[Refugees$country]
 
-library(reshape2)
-WorldPhones.m = melt(WorldPhones)
-colnames(WorldPhones.m) = c("Year", "Continent", "Phones")
-head(WorldPhones.m)
-# Make plot
-ggplot(WorldPhones.m, aes(x=Year, y=Phones, color=Continent)) + geom_line() + scale_color_manual(values=dragon)
+## Pick color scale in palette
+places_pal <- c(burp("Dragon_Keep", pal_class = "Places", n=5),
+                burp("Swamp", pal_class = "Places", n=5))
+
+ggplot(data = Refugees,
+       aes(x = year, y = refugees, alluvium = country)) +
+  geom_alluvium(aes(fill = country, colour = country),
+                alpha = .75, decreasing = FALSE) +
+  scale_x_continuous(breaks = seq(2003, 2013, 2)) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = -30, hjust = 0)) +
+  scale_fill_manual(values=places_pal) +
+  scale_color_manual(values=places_pal) +
+  facet_wrap(~ region, scales = "fixed") +
+  ggtitle("refugee volume by country and region of origin")
 ```
 
 #### Example with Titanic data

@@ -149,6 +149,7 @@ burp <- function(name,pal_class=c("Hero","Villain","Place"), n, type = c("discre
 #' show_my_swamp(shrek_pal)
 
 show_my_swamp<- function(pal) {
+  require(dplyr)
 
   # Info df imported while loading package
   info_sub = info %>%
